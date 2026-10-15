@@ -1,5 +1,5 @@
 {
-  "name": "LiftMi: AI Gym Equipment & Muscle Identifier",
+  "name": "LiftMi: Gym Equipment & Muscle Identifier",
   "description": "LiftMi snaps or uploads photos of gym equipment, machines, or free weights to instantly reveal targeted muscle groups, biomechanical visuals, proper exercise form, and common mistakes.",
   "requestFramePermissions": [
     "camera",

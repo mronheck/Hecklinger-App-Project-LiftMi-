@@ -11,7 +11,6 @@ import {
   Compass,
   ArrowRight,
   ShieldAlert,
-  Sparkles,
   ShieldCheck,
   Wrench,
   Timer,
@@ -378,7 +377,7 @@ export const ExerciseCard: React.FC<ExerciseCardProps> = ({
 
             {/* Coach's Mind-Muscle Cue */}
             <div className="flex items-start gap-2.5 bg-blue-50/80 p-3 rounded-xl border border-blue-200">
-              <Sparkles className="w-4 h-4 text-blue-900 shrink-0 mt-0.5" />
+              <Dumbbell className="w-4 h-4 text-blue-900 shrink-0 mt-0.5" />
               <div>
                 <span className="text-[10px] font-mono uppercase tracking-wider text-blue-900 font-bold block">
                   Coach's Mind-Muscle Cue

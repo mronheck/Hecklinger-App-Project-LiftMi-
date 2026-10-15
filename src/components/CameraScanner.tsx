@@ -193,10 +193,10 @@ export const CameraScanner: React.FC<CameraScannerProps> = ({
               onToggleExpand(true);
               startCamera();
             }}
-            className="px-3.5 py-2 rounded-xl bg-[#0f172a] hover:bg-[#1e293b] text-white font-bold text-xs flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
+            className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer"
           >
-            <Camera className="w-3.5 h-3.5 text-blue-300" />
-            <span>Scan New Machine</span>
+            <Camera className="w-3.5 h-3.5 text-slate-600" />
+            <span>Scan New Equipment</span>
           </button>
 
           <button

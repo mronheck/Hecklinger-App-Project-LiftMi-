@@ -57,9 +57,12 @@ When analyzing:
    - "traps", "lats", "rhomboids", "lower_back"
    - "abs", "obliques"
    - "glutes", "quads", "hamstrings", "calves"
-4. CRITICAL REQUIREMENT FOR FREE WEIGHTS (dumbbells, barbells, kettlebells, EZ-curl bar):
-   Give 3 to 6 distinct, popular exercises that can be performed with these weights, and explain how each distinct exercise targets different muscle groups!
-   For gym machines, provide the primary exercise it is designed for, plus 1-2 variations or alternate grips/settings.
+4. CRITICAL REQUIREMENT FOR EXERCISE VARIETY:
+   Ensure ALL possible exercises and popular variations for the detected equipment are accounted for!
+   - For DUMBBELLS: You MUST include bicep curl variations (e.g., Standing Alternating Bicep Curl, Dumbbell Hammer Curl, Incline Bicep Curl, Concentration Curl), pressing movements (Flat Bench Press, Incline Press, Overhead Shoulder Press), rows (Single-Arm Dumbbell Row), lateral raises, and lower body movements (Goblet Squat, Romanian Deadlift). Do NOT omit bicep curls when dumbbells are scanned! Return 6 to 10 comprehensive exercises.
+   - For BARBELLS: Include Bench Press, Overhead Press, Barbell Row, Barbell Bicep Curl, Back Squat, and Romanian Deadlift.
+   - For CABLE MACHINES: Include Cable Bicep Curl, Tricep Pushdown, Cable Lateral Raise, Cable Flye, Lat Pulldown, and Seated Cable Row.
+   - For DEDICATED MACHINES: Include the primary exercise plus all foot/hand variations, alternate grips, and unilateral single-limb options.
 5. For EVERY exercise:
    - Provide brief, punchy descriptions (NOT walls of text).
    - Provide visual form cues, posture checkpoints, elbow/joint angle guidelines, bar/weight trajectory.
@@ -69,6 +72,7 @@ When analyzing:
 
       const promptText = `Analyze this gym equipment photo for someone with experience level: ${experienceLevel}.
 ${userPrompt ? `User notes or focus: ${userPrompt}` : 'Identify the equipment, specific muscle impact, exercises, visual form cues, and proper execution.'}
+Make sure all popular exercises possible with this equipment (such as different types of curls, presses, and rows for dumbbells) are comprehensively included.
 Return structured JSON following the exact schema.`;
 
       const response = await ai.models.generateContent({
@@ -717,6 +721,98 @@ function getFallbackAnalysis(keyword: string) {
             restTime: '60 seconds',
           },
           proTip: 'Keep your thumbs slightly lower than your pinkies at peak height to isolate the side delt head from your front delt.',
+        },
+        {
+          id: 'db-standing-bicep-curl',
+          name: 'Standing Alternating Dumbbell Bicep Curl',
+          difficulty: 'Beginner',
+          movementType: 'Isolation',
+          targetArea: 'Biceps Brachii (Short & Long Heads) & Forearms',
+          muscleKeys: ['biceps', 'forearms'],
+          primaryMuscles: ['Biceps Brachii'],
+          secondaryMuscles: ['Brachialis', 'Brachioradialis'],
+          briefDescription: 'The gold standard bicep exercise. Wrist supination at the peak maximally recruits the biceps peak.',
+          formCheckpoints: [
+            { step: 'Setup', instruction: 'Stand tall with dumbbells at sides, palms facing thighs.', visualPosturalCue: 'Shoulders retracted, core braced.' },
+            { step: 'Execution', instruction: 'Curl one dumbbell upward while turning palm toward ceiling.', visualPosturalCue: 'Keep elbow pinned at your side, no forward swing.' },
+            { step: 'Peak Squeeze', instruction: 'Squeeze the biceps at top contraction, then lower slowly over 3 seconds.', visualPosturalCue: 'Full elbow extension at bottom.' },
+          ],
+          visualBiometrics: {
+            idealJointAngle: 'Elbows pinned at ribs, full 135° flexion at peak',
+            spinePosition: 'Strict vertical spine, zero torso swing',
+            weightTrajectory: 'Curving sagittal arc with 90° wrist supination',
+            breathingCadence: 'Exhale curling upward, Inhale lowering over 3s',
+            tempo: '3-1-1-0',
+          },
+          dos: [
+            'Turn your pinky upward toward your shoulder at the peak for maximum supination.',
+            'Keep elbows locked against your ribcage throughout.',
+          ],
+          donts: [
+            { mistake: 'Swinging torso or leaning back', whyItHurts: 'Uses momentum and strains lumbar spine.', riskLevel: 'Medium' },
+            { mistake: 'Letting elbows drift forward into front delts', whyItHurts: 'Transfers load off the biceps to the anterior shoulder.', riskLevel: 'Low' },
+          ],
+          protocols: {
+            hypertrophy: '3-4 sets of 10-12 reps per arm',
+            strength: '3 sets of 8 reps',
+            endurance: '3 sets of 15 reps',
+            restTime: '60-90 seconds',
+          },
+          proTip: 'Squeeze the dumbbell handle hard and initiate the wrist rotation early in the ascent to ignite the biceps peak.',
+        },
+        {
+          id: 'db-hammer-curl',
+          name: 'Dumbbell Hammer Curl (Neutral Grip)',
+          difficulty: 'Beginner',
+          movementType: 'Isolation',
+          targetArea: 'Brachialis, Biceps Long Head & Forearms (Arm Thickness)',
+          muscleKeys: ['biceps', 'forearms'],
+          primaryMuscles: ['Brachialis', 'Brachioradialis'],
+          secondaryMuscles: ['Biceps Brachii (Long Head)'],
+          briefDescription: 'Neutral grip (palms facing each other) targets the brachialis muscle under the bicep, pushing arm width and grip strength.',
+          formCheckpoints: [
+            { step: 'Setup', instruction: 'Hold dumbbells with neutral grip, palms facing inward.', visualPosturalCue: 'Shoulders back, feet shoulder-width.' },
+            { step: 'Execution', instruction: 'Curl weights straight up toward shoulders with palms staying neutral.', visualPosturalCue: 'Wrists stay rigid like steel.' },
+            { step: 'Peak', instruction: 'Hold peak contraction for 1 second before controlled lowering.', visualPosturalCue: 'Slow 3-second descent.' },
+          ],
+          visualBiometrics: {
+            idealJointAngle: 'Elbows fixed at 90-110° flexion at top, neutral wrist',
+            spinePosition: 'Neutral spine, shoulders retracted',
+            weightTrajectory: 'Pure vertical sagittal arc without wrist rotation',
+            breathingCadence: 'Exhale curling up, Inhale lowering over 2-3s',
+            tempo: '2-1-1-0',
+          },
+          dos: ['Keep wrists neutral throughout.', 'Lower to full extension for full brachioradialis stretch.'],
+          donts: [{ mistake: 'Flaring elbows outward', whyItHurts: 'Reduces brachialis activation and stresses elbow joint.', riskLevel: 'Low' }],
+          protocols: { hypertrophy: '3-4 sets of 10-12 reps', strength: '4 sets of 6-8 reps', endurance: '3 sets of 15-20 reps', restTime: '60s' },
+          proTip: 'Think about pushing your thumb knuckle toward your front shoulder cap for maximum brachialis recruitment.',
+        },
+        {
+          id: 'db-incline-bicep-curl',
+          name: 'Incline Dumbbell Bicep Curl',
+          difficulty: 'Intermediate',
+          movementType: 'Isolation',
+          targetArea: 'Biceps Long Head & Deep Stretch',
+          muscleKeys: ['biceps', 'forearms'],
+          primaryMuscles: ['Biceps Brachii (Long Head)'],
+          secondaryMuscles: ['Brachialis'],
+          briefDescription: 'Incline bench position places the long head under deep mechanical tension behind the torso.',
+          formCheckpoints: [
+            { step: 'Setup', instruction: 'Lie back on 55° incline bench, arms hanging straight down.', visualPosturalCue: 'Shoulders back against pad.' },
+            { step: 'Execution', instruction: 'Curl dumbbells upward with elbows staying stationary behind torso.', visualPosturalCue: 'Supinate wrists on the way up.' },
+            { step: 'Peak', instruction: 'Squeeze biceps at the top and resist gravity on the descent.', visualPosturalCue: 'Elbows stay pinned back.' },
+          ],
+          visualBiometrics: {
+            idealJointAngle: 'Bench at 55-60°, elbows behind torso plane',
+            spinePosition: 'Spine fully supported by incline pad',
+            weightTrajectory: 'Curling arc with wrist supination',
+            breathingCadence: 'Exhale curling up, Inhale lowering',
+            tempo: '3-1-1-0',
+          },
+          dos: ['Emphasize the bottom stretch.', 'Pin elbows behind the torso.'],
+          donts: [{ mistake: 'Swinging elbows forward', whyItHurts: 'Transfers load to anterior deltoid.', riskLevel: 'Low' }],
+          protocols: { hypertrophy: '3 sets of 10-12 reps', strength: '3 sets of 8 reps', endurance: '3 sets of 15 reps', restTime: '60s' },
+          proTip: 'Flex your triceps at the very bottom to ensure your biceps are 100% lengthened before curling.',
         },
       ],
     };

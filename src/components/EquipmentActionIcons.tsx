@@ -166,76 +166,78 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Simple Icon Bar (No information displayed unless clicked) */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-3 shadow-xs flex items-center justify-center gap-3 sm:gap-6">
-        {/* 1. Form Instructions Icon Button */}
-        <button
-          type="button"
-          onClick={() => setActiveModal(activeModal === 'form' ? null : 'form')}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeModal === 'form'
-              ? 'bg-[#0f172a] text-white shadow-xs'
-              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-          }`}
-          title="Form Instructions"
-        >
-          <Compass className="w-4 h-4 text-blue-400" />
-          <span>Form Instructions</span>
-        </button>
+      {/* Sleek Icon Bar (No open text, 100% visible on all screens with zero sideways swiping) */}
+      <div className="bg-white border border-slate-200 rounded-2xl p-2 sm:p-3 shadow-xs">
+        <div className="grid grid-cols-4 gap-1.5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-3">
+          {/* 1. Form Instructions Icon Button */}
+          <button
+            type="button"
+            onClick={() => setActiveModal(activeModal === 'form' ? null : 'form')}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
+              activeModal === 'form'
+                ? 'bg-[#0f172a] text-white shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+            }`}
+            title="Form Instructions"
+          >
+            <Compass className="w-4 h-4 text-blue-500" />
+            <span>Form</span>
+          </button>
 
-        {/* 2. Safety Tips Icon Button */}
-        <button
-          type="button"
-          onClick={() => setActiveModal(activeModal === 'safety' ? null : 'safety')}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeModal === 'safety'
-              ? 'bg-[#0f172a] text-white shadow-xs'
-              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-          }`}
-          title="Safety Tips & Setup"
-        >
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
-          <span>Safety Tips</span>
-        </button>
+          {/* 2. Safety Tips Icon Button */}
+          <button
+            type="button"
+            onClick={() => setActiveModal(activeModal === 'safety' ? null : 'safety')}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
+              activeModal === 'safety'
+                ? 'bg-[#0f172a] text-white shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+            }`}
+            title="Safety Tips & Setup"
+          >
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>Safety</span>
+          </button>
 
-        {/* 3. Rest Timer & Set Logger Icon Button */}
-        <button
-          type="button"
-          onClick={() => setActiveModal(activeModal === 'timer' ? null : 'timer')}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            activeModal === 'timer'
-              ? 'bg-[#0f172a] text-white shadow-xs'
-              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-          }`}
-          title="Rest Timer & Sets"
-        >
-          <Timer className="w-4 h-4 text-indigo-400" />
-          <span>Timer & Sets</span>
-        </button>
+          {/* 3. Rest Timer & Set Logger Icon Button */}
+          <button
+            type="button"
+            onClick={() => setActiveModal(activeModal === 'timer' ? null : 'timer')}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
+              activeModal === 'timer'
+                ? 'bg-[#0f172a] text-white shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+            }`}
+            title="Rest Timer & Sets"
+          >
+            <Timer className="w-4 h-4 text-indigo-500" />
+            <span>Timer</span>
+          </button>
 
-        {/* 4. Voice Coach Quick Toggle */}
-        <button
-          type="button"
-          onClick={handleToggleVoiceCoach}
-          className={`flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-            isPlayingAudio
-              ? 'bg-rose-600 text-white animate-pulse'
-              : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
-          }`}
-          title="Listen to Form Instructions"
-        >
-          {isPlayingAudio ? (
-            <>
-              <VolumeX className="w-4 h-4 text-white" />
-              <span>Stop Voice</span>
-            </>
-          ) : (
-            <>
-              <Volume2 className="w-4 h-4 text-blue-900" />
-              <span>Voice Coach</span>
-            </>
-          )}
-        </button>
+          {/* 4. Voice Coach Quick Toggle */}
+          <button
+            type="button"
+            onClick={handleToggleVoiceCoach}
+            className={`flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-1.5 p-2 sm:px-3 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold transition-all cursor-pointer ${
+              isPlayingAudio
+                ? 'bg-rose-600 text-white animate-pulse'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200'
+            }`}
+            title="Listen to Form Instructions"
+          >
+            {isPlayingAudio ? (
+              <>
+                <VolumeX className="w-4 h-4 text-white" />
+                <span>Stop</span>
+              </>
+            ) : (
+              <>
+                <Volume2 className="w-4 h-4 text-blue-900" />
+                <span>Voice</span>
+              </>
+            )}
+          </button>
+        </div>
       </div>
 
       {audioError && (
@@ -247,20 +249,20 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
       {/* POPUP MODAL (Opens ONLY when an icon is selected, keeping the app 100% sleek and uncluttered!) */}
       {activeModal && (
         <div
-          className="fixed inset-0 z-50 bg-[#0f172a]/60 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 z-50 bg-[#0f172a]/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-fade-in"
           onClick={() => setActiveModal(null)}
         >
           <div
-            className="relative max-w-2xl w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
+            className="relative max-w-2xl w-full bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden max-h-[88vh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+            <div className="p-3.5 sm:p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {activeModal === 'form' && <Compass className="w-5 h-5 text-blue-900" />}
                 {activeModal === 'safety' && <ShieldCheck className="w-5 h-5 text-emerald-600" />}
                 {activeModal === 'timer' && <Timer className="w-5 h-5 text-indigo-900" />}
-                <h3 className="text-base font-bold text-[#0f172a]">
+                <h3 className="text-sm sm:text-base font-bold text-[#0f172a]">
                   {activeModal === 'form' && `Form Instructions: ${currentExercise.name}`}
                   {activeModal === 'safety' && `Safety Tips: ${currentExercise.name}`}
                   {activeModal === 'timer' && `Set Tracker & Rest Timer`}
@@ -277,8 +279,8 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
             </div>
 
             {/* Modal Body */}
-            <div className="p-5 overflow-y-auto space-y-5">
-              {/* === FORM INSTRUCTIONS MODAL CONTENT === */}
+            <div className="p-4 sm:p-5 overflow-y-auto space-y-4">
+              {/* === 1. FORM INSTRUCTIONS MODAL CONTENT === */}
               {activeModal === 'form' && (
                 <div className="space-y-4">
                   <p className="text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-200">
@@ -291,35 +293,35 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
                       Biomechanical Alignment Checkpoints
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                      <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
                         <span className="text-slate-500 text-[10px] flex items-center gap-1 font-medium">
                           <Gauge className="w-3 h-3 text-blue-900" /> Joint Angle
                         </span>
-                        <p className="font-semibold text-slate-900 mt-1">
+                        <p className="font-semibold text-slate-900 mt-0.5">
                           {currentExercise.visualBiometrics.idealJointAngle}
                         </p>
                       </div>
-                      <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
                         <span className="text-slate-500 text-[10px] flex items-center gap-1 font-medium">
                           <ShieldAlert className="w-3 h-3 text-emerald-700" /> Spine Posture
                         </span>
-                        <p className="font-semibold text-slate-900 mt-1">
+                        <p className="font-semibold text-slate-900 mt-0.5">
                           {currentExercise.visualBiometrics.spinePosition}
                         </p>
                       </div>
-                      <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
                         <span className="text-slate-500 text-[10px] flex items-center gap-1 font-medium">
                           <ArrowRight className="w-3 h-3 text-blue-700" /> Weight Path Vector
                         </span>
-                        <p className="font-semibold text-slate-900 mt-1">
+                        <p className="font-semibold text-slate-900 mt-0.5">
                           {currentExercise.visualBiometrics.weightTrajectory}
                         </p>
                       </div>
-                      <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                      <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200">
                         <span className="text-slate-500 text-[10px] flex items-center gap-1 font-medium">
                           <Clock className="w-3 h-3 text-indigo-900" /> Tempo & Breathing
                         </span>
-                        <p className="font-semibold text-slate-900 mt-1">
+                        <p className="font-semibold text-slate-900 mt-0.5">
                           <span className="font-mono text-blue-900">{currentExercise.visualBiometrics.tempo}</span> • {currentExercise.visualBiometrics.breathingCadence}
                         </p>
                       </div>
@@ -340,7 +342,7 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
                             </span>
                           </div>
                           <p className="font-semibold text-slate-800">{cp.instruction}</p>
-                          <p className="text-[11px] text-emerald-800 font-semibold mt-1.5 flex items-center gap-1">
+                          <p className="text-[11px] text-emerald-800 font-semibold mt-1 flex items-center gap-1">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                             <span>Visual Check: {cp.visualPosturalCue}</span>
                           </p>
@@ -361,7 +363,7 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
                 </div>
               )}
 
-              {/* === SAFETY TIPS MODAL CONTENT === */}
+              {/* === 2. SAFETY TIPS MODAL CONTENT === */}
               {activeModal === 'safety' && (
                 <div className="space-y-4">
                   {/* Setup Checklist */}
@@ -424,7 +426,7 @@ export const EquipmentActionIcons: React.FC<EquipmentActionIconsProps> = ({
                 </div>
               )}
 
-              {/* === TIMER & SET TRACKER MODAL CONTENT === */}
+              {/* === 3. TIMER & SET TRACKER MODAL CONTENT === */}
               {activeModal === 'timer' && (
                 <div className="space-y-4">
                   {/* Rest Countdown Timer */}

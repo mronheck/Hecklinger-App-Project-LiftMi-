@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { CameraScanner } from './components/CameraScanner';
 import { AiRoutineGenerator } from './components/AiRoutineGenerator';
-import { MuscleAnatomyViewer } from './components/MuscleAnatomyViewer';
-import { PossibleExercisesPicker } from './components/PossibleExercisesPicker';
+import { ExerciseMuscleHub } from './components/ExerciseMuscleHub';
 import { EquipmentActionIcons } from './components/EquipmentActionIcons';
 import { EquipmentOverviewCard } from './components/EquipmentOverviewCard';
 import { HistoryDrawer } from './components/HistoryDrawer';
@@ -248,24 +247,17 @@ export default function App() {
             {/* Overview & Scanned Thumbnail/Badge */}
             <EquipmentOverviewCard data={analysisResult} />
 
-            {/* Possible Exercises Selector */}
+            {/* Exercises & Affiliated Muscle Visual Hub */}
             {analysisResult.exercises && analysisResult.exercises.length > 0 && (
-              <PossibleExercisesPicker
+              <ExerciseMuscleHub
                 exercises={analysisResult.exercises}
                 selectedExerciseId={selectedExerciseId}
                 onSelectExercise={(id) => setSelectedExerciseId(id)}
+                allTargetedMuscles={analysisResult.overallTargetedMuscles}
               />
             )}
 
-            {/* Muscles Hit for the Selected Exercise */}
-            <MuscleAnatomyViewer
-              highlightedKeys={currentMuscleKeys}
-              allTargetedMuscles={analysisResult.overallTargetedMuscles}
-              exerciseName={currentExercise?.name}
-            />
-
-            {/* Simple Icons representing all other info (Form Instructions, Safety Tips, Timer & Sets, Voice Coach).
-                Does NOT display information open unless clicked! */}
+            {/* Simple Icons (Form Instructions, Safety Tips, Timer & Sets, Voice Coach) */}
             <EquipmentActionIcons
               currentExercise={currentExercise}
               setupAndSafety={analysisResult.setupAndSafety}
